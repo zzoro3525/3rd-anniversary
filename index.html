@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#240b20">
+  <title>Happy 3rd Anniversary ❤️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background: radial-gradient(circle at top, #70264e, #240b20 65%, #100610);
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    #confetti {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 35px 18px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 540px;
+      padding: 35px 24px;
+      border: 1px solid rgba(255, 215, 160, 0.35);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 55px rgba(255, 58, 133, 0.15);
+      animation: appear 1.2s ease both;
+    }
+
+    .top-text {
+      color: #ffd6a0;
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .heart {
+      font-size: 65px;
+      display: inline-block;
+      filter: drop-shadow(0 0 18px #ff548b);
+      animation: heartbeat 1.3s infinite;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(43px, 10vw, 67px);
+      font-weight: 400;
+      color: #ffe0b5;
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+
+    .anniversary {
+      font-size: clamp(20px, 5vw, 30px);
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #ff8db6;
+      text-shadow: 0 0 20px rgba(255, 100, 170, 0.5);
+    }
+
+    .divider {
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #ffd6a0, transparent);
+      margin: 25px auto;
+    }
+
+    .message {
+      color: #fff0f4;
+      font-size: 15px;
+      line-height: 2;
+      font-weight: 300;
+    }
+
+    .message strong {
+      color: #ffd6a0;
+      font-weight: 600;
+    }
+
+    .years {
+      display: inline-block;
+      margin: 24px 0;
+      padding: 12px 23px;
+      border: 1px solid rgba(255, 214, 160, 0.5);
+      border-radius: 40px;
+      color: #ffe0b5;
+      font-size: 14px;
+      background: rgba(255, 214, 160, 0.07);
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      max-width: 290px;
+      margin: 0 auto;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 50px;
+      color: #4b1232;
+      background: linear-gradient(135deg, #ffe2b0, #ff9dbd);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 5px 25px rgba(255, 104, 165, 0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(255, 104, 165, 0.5);
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    #surprise {
+      display: none;
+      margin-top: 24px;
+      color: #ffe0eb;
+      font-family: 'Great Vibes', cursive;
+      font-size: 35px;
+      line-height: 1.5;
+      animation: appear 0.8s ease both;
+    }
+
+    .footer {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 11px;
+      margin-top: 28px;
+      letter-spacing: 1px;
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -40px;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0;
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.15); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.1); }
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.7; }
+      100% { transform: translateY(-110vh) rotate(35deg); opacity: 0; }
+    }
+
+    @media (max-width: 380px) {
+      .card { padding: 28px 17px; }
+      .top-text { letter-spacing: 2px; }
+      .message { font-size: 14px; }
+      .heart { font-size: 54px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="confetti"></canvas>
+
+  <main class="container">
+    <section class="card">
+      <p class="top-text">A special day for two hearts</p>
+
+      <div class="heart">❤️</div>
+
+      <h1>Happy Anniversary</h1>
+
+      <p class="anniversary">3 YEARS OF LOVE</p>
+
+      <div class="divider"></div>
+
+      <p class="message">
+        Three beautiful years, countless memories,<br>
+        a million smiles, and one love that keeps growing.<br><br>
+
+        Every moment with you is a treasure.<br>
+        Thank you for making life more beautiful.<br><br>
+
+        Here's to <strong>our forever</strong>, to more adventures,
+        more laughter, and a love that never ends. 💕
+      </p>
+
+      <div class="years">✨ &nbsp; 3 Years Together &nbsp; ✨</div>
+
+      <button id="celebrateBtn" type="button">
+        🎉 Click for a Surprise ❤️
+      </button>
+
+      <div id="surprise" aria-live="polite">
+        I would choose you,<br>
+        today, tomorrow & forever! 💖
+        <br>
+        <span style="font-family: Poppins; font-size: 14px;">
+          Happy 3rd Anniversary, My Love! 💋
+        </span>
+      </div>
+
+      <p class="footer">MADE WITH LOVE • FOREVER & ALWAYS</p>
+    </section>
+  </main>
+
+  <script>
+    // Confetti animation
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+    let animationId;
+    let celebrationTimer;
+    let celebrating = false;
+
+    function resizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    const colors = [
+      "#ff4f91", "#ffd166", "#ffffff",
+      "#c77dff", "#ff85a1", "#80ffdb"
+    ];
+
+    function createConfetti(count, burst = false) {
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * window.innerWidth,
+          y: burst ? window.innerHeight * 0.55 : -20 - Math.random() * 100,
+          vx: (Math.random() - 0.5) * (burst ? 12 : 3),
+          vy: burst ? -Math.random() * 12 - 3 : Math.random() * 3 + 2,
+          size: Math.random() * 7 + 3,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * 360,
+          spin: (Math.random() - 0.5) * 8,
+          gravity: 0.06 + Math.random() * 0.06,
+          life: 180 + Math.random() * 100
+        });
+      }
+    }
+
+    function animateConfetti() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      particles = particles.filter(p => p.life > 0);
+
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += p.gravity;
+        p.rotation += p.spin;
+        p.life--;
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation * Math.PI / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.65);
+        ctx.restore();
+      });
+
+      if (celebrating && Math.random() < 0.18) {
+        createConfetti(3);
+      }
+
+      if (particles.length || celebrating) {
+        animationId = requestAnimationFrame(animateConfetti);
+      } else {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        animationId = null;
+      }
+    }
+
+    function startConfetti(burst = false) {
+      createConfetti(burst ? 180 : 90, burst);
+
+      if (!animationId) {
+        animationId = requestAnimationFrame(animateConfetti);
+      }
+    }
+
+    // Floating hearts
+    function createHeart() {
+      if (document.hidden) return;
+
+      const heart = document.createElement("div");
+      heart.className = "floating-heart";
+      heart.textContent = ["❤️", "💕", "💗", "💖", "✨"][
+        Math.floor(Math.random() * 5)
+      ];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+      heart.style.animationDuration = (Math.random() * 5 + 6) + "s";
+
+      document.body.appendChild(heart);
+      heart.addEventListener("animationend", () => heart.remove());
+    }
+
+    const heartInterval = setInterval(createHeart, 650);
+
+    // Initial celebration
+    startConfetti();
+
+    // Surprise button
+    document.getElementById("celebrateBtn").addEventListener("click", () => {
+      const surprise = document.getElementById("surprise");
+      surprise.style.display = "block";
+
+      celebrating = true;
+      startConfetti(true);
+
+      clearTimeout(celebrationTimer);
+      celebrationTimer = setTimeout(() => {
+        celebrating = false;
+        if (!particles.length && animationId) {
+          cancelAnimationFrame(animationId);
+          animationId = null;
+          ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        }
+      }, 7000);
+
+      document.getElementById("celebrateBtn").textContent =
+        "💖 You Are My Forever! 💖";
+    });
+
+    // Clean up if the page is hidden
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        clearInterval(heartInterval);
+      }
+    });
+  </script>
+</body>
+</html>
